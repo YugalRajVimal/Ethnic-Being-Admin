@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  background-color: #0F0D0B;
+  color: #FAF8F4;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #0F0D0B; }
+::-webkit-scrollbar-thumb  { background: #2E2822; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8C7B6B; }
+
+/* ── Skeleton ─────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #221E19 25%, #2E2822 50%, #221E19 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Badge Classes ────────────────────────────────────── */
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-medium;
+  }
+  .badge-green   { @apply badge bg-eb-green/20 text-emerald-400 border border-eb-green/30; }
+  .badge-gold    { @apply badge bg-eb-gold/20 text-amber-400 border border-eb-gold/30; }
+  .badge-terra   { @apply badge bg-eb-terra/20 text-orange-400 border border-eb-terra/30; }
+  .badge-muted   { @apply badge bg-eb-muted/20 text-eb-muted border border-eb-muted/20; }
+  .badge-red     { @apply badge bg-eb-red/20 text-red-400 border border-eb-red/30; }
+  .badge-purple  { @apply badge bg-eb-purple/20 text-purple-400 border border-eb-purple/30; }
+  .badge-cream   { @apply badge bg-eb-cream/10 text-eb-cream border border-eb-cream/20; }
+
+  /* Table hover */
+  .eb-table tbody tr {
+    @apply transition-colors duration-150 hover:bg-eb-border/30 cursor-pointer;
+  }
+  .eb-table th {
+    @apply text-left text-xs font-mono uppercase tracking-widest text-eb-muted py-3 px-4 border-b border-eb-border;
+  }
+  .eb-table td {
+    @apply py-3 px-4 text-sm text-eb-cream/80 border-b border-eb-border/40;
+  }
+}
+
+/* ── Modal overlay ────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10, 8, 6, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Range input ──────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: #2E2822; height: 4px; border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%; background: #C4622D; cursor: pointer;
+}
