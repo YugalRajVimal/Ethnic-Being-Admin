@@ -1,4 +1,4 @@
-const BASE = import.meta.env.REACT_APP_API_BASE_URL || "http://localhost:8080/api/v1";
+const BASE = import.meta.env.REACT_APP_API_BASE_URL || "https://ethnicbeingserver.devyugal.in/api/v1";
 
 const token = () => localStorage.getItem("eb_admin_token");
 
